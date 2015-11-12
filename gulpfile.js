@@ -1,18 +1,27 @@
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    jade = require('gulp-jade'),
-    autoprefixer = require('autoprefixer'),
-    postcss = require('gulp-postcss'),
-    posthtml = require('gulp-posthtml'),
-    csscomb = require('gulp-csscomb'),
-    csso = require('gulp-csso'),
-    connect = require('gulp-connect')
-    rename = require('gulp-rename'),
-    plumber = require('gulp-plumber');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var jade = require('gulp-jade');
+var autoprefixer = require('autoprefixer');
+var postcss = require('gulp-postcss');
+var posthtml = require('gulp-posthtml');
+var csscomb = require('gulp-csscomb');
+var csso = require('gulp-csso');
+var connect = require('gulp-connect');
+var rename = require('gulp-rename');
+var plumber = require('gulp-plumber');
+var jimp = require('gulp-jimp');
+var image = require('gulp-image');
+var package = require('./package.json')
+
 
 var paths = {
-    styles: 'src/sass/*.sass',
+    styles: 'src/sass/**/*.sass',
     templates: 'src/jade/*.jade',
+    images: 'src/images/*',
+    scripts: 'src/js/*.js',
+    blurImages: 'src/images/*.header-bg.jpg',
+    vendor: 'src/vendor/*'
+
 }
 
 gulp.task('connect', function() {
@@ -22,12 +31,21 @@ gulp.task('connect', function() {
         port: 1337
     })
 })
-gulp.task('sass', function() {
-    gulp.src(paths.styles)
-        .pipe(sass())
-        .pipe(gulp.dest('build/css'));
-});
 
+gulp.task('blur', function() {
+    gulp.src(paths.blurImages)
+        .pipe(jimp({ blur: 10}))
+        .pipe(rename({
+            suffix: '.blur'
+        }))
+        .pipe(gulp.dest('./src/images/'))
+})
+
+gulp.task('images', function() {
+    gulp.src(paths.images)
+        .pipe(image())
+        .pipe(gulp.dest('./build/images/'))
+})
 gulp.task('styles', function() {
     var processors = [
         autoprefixer(),
@@ -46,6 +64,7 @@ gulp.task('templates', function() {
     var processors = [
         require('posthtml-bem')()
     ]
+
     gulp.src(paths.templates)
         .pipe(plumber())
         .pipe(jade({ pretty: true }))
@@ -54,10 +73,28 @@ gulp.task('templates', function() {
         .pipe(connect.reload());
 })
 
+
+gulp.task('scripts', function() {
+    gulp.src(paths.scripts)
+        .pipe(gulp.dest('./build/js'))
+        .pipe(connect.reload());
+})
+
+gulp.task('vendor', function() {
+    gulp.src(paths.vendor)
+        .pipe(gulp.dest('./build/vendor'))
+        .pipe(connect.reload());
+})
+
 gulp.task('watch', function() {
     gulp.watch(paths.styles, ['styles']);
     gulp.watch(paths.templates, ['templates']);
+    gulp.watch(paths.scripts, ['scripts']);
+    gulp.watch(paths.images, ['images']);
 });
 
+gulp.task('test', function() {
 
-gulp.task('default', ['styles', 'templates', 'connect', 'watch'])
+    console.log(package.dependencies)
+})
+gulp.task('default', ['connect', 'styles', 'templates', 'scripts', 'vendor',  'watch'])

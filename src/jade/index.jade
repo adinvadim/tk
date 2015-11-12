@@ -1,6 +1,40 @@
 doctype html
 html
   head
-    title ALALDL
-    link(rel='stylesheet', href='/css/main.css')
+    title Татьяна Костина
+    link(rel='stylesheet', href='css/main.css')
+    link(rel='stylesheet', href='vendor/material.min.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='X-UA-Compatible', content="IE-edge")
   body(block="page")
+    section(block="section", mods="type: main", mix="block: js-header")
+      div(elem="content-wrap", mods="header-blurred", mix="block: js-header elem: content-wrap")
+        h1(elem="header") Заголовок
+
+        p(elem="text") Consectetur lorem ad sed hic numquam doloribus est minima reprehenderit laudantium. Necessitatibus consequuntur dignissimos vel aperiam temporibus. Nam molestias laboriosam ex veritatis illo eos. Corporis soluta nulla eveniet doloremque consequatur!
+
+        button(class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent") Подписаться
+
+    section(block="section")
+        div(block="steps", mix="block: section elem: content-wrap, block: js-steps")
+            div(elem="step")
+                div(elem="img"): img(src="")
+                h4(elem="header") First step
+                div(elem="description")
+            div(elem="step")
+                div(elem="img"): img(src="")
+                h4(elem="header") Second step
+                div(elem="description")
+            div(elem="step")
+                div(elem="img"): img(src="")
+                h4(elem="header") Third step
+                div(elem="description")
+
+
+
+    script(src="js/jquery.min.js")
+    script(src="vendor/material.min.js")
+    script(src="js/index.js")
+
+
+

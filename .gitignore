@@ -6,5 +6,6 @@ Session.vim
 .netrwhist
 *~
 
+build
 node_modules
 
