@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "adinvadim",
   "license": "MIT",
   "devDependencies": {
@@ -26,13 +23,29 @@
     "gulp-sass": "^2.1.0",
     "gulp-stylus": "^2.1.0",
     "gulp-watch": "^4.3.5",
+    "nconf": "^0.8.2",
+    "nodemon": "^1.8.1",
     "postcss-fontpath": "^0.2.0",
     "posthtml-bem": "^0.2.2",
     "posthtml-classes": "^0.2.1"
   },
   "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
     "express": "^4.13.3",
+    "intel": "^1.0.2",
+    "jade": "^1.11.0",
     "jquery": "^2.1.4",
-    "material-design-lite": "^1.0.6"
+    "material-design-lite": "^1.0.6",
+    "morgan": "~1.6.1",
+    "nodemon": "^1.8.1",
+    "posthtml": "^0.7.0",
+    "posthtml-bem": "^0.2.2",
+    "serve-favicon": "~2.3.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js"
   }
 }

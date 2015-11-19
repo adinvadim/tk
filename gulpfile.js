@@ -15,7 +15,7 @@ var package = require('./package.json')
 
 
 var paths = {
-    styles: 'src/sass/**/*.sass',
+    styles: 'blocks/**/*.sass',
     templates: 'src/jade/*.jade',
     images: 'src/images/*',
     scripts: 'src/js/*.js',
@@ -26,7 +26,7 @@ var paths = {
 
 gulp.task('connect', function() {
     connect.server({
-        root: 'build',
+        root: 'public',
         livereload: true,
         port: 1337
     })
@@ -44,7 +44,7 @@ gulp.task('blur', function() {
 gulp.task('images', function() {
     gulp.src(paths.images)
         .pipe(image())
-        .pipe(gulp.dest('./build/images/'))
+        .pipe(gulp.dest('./public/images/'))
 })
 gulp.task('styles', function() {
     var processors = [
@@ -55,8 +55,8 @@ gulp.task('styles', function() {
         .pipe(plumber())
         .pipe(sass())
         .pipe(postcss(processors))
-        .pipe(gulp.dest('./build/css'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('./public/css'));
+        //.pipe(connect.reload());
 
 })
 
@@ -69,21 +69,21 @@ gulp.task('templates', function() {
         .pipe(plumber())
         .pipe(jade({ pretty: true }))
         .pipe(posthtml(processors))
-        .pipe(gulp.dest('./build/'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('./public/'));
+        //.pipe(connect.reload());
 })
 
 
 gulp.task('scripts', function() {
     gulp.src(paths.scripts)
-        .pipe(gulp.dest('./build/js'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('./public/js'));
+        //.pipe(connect.reload());
 })
 
 gulp.task('vendor', function() {
     gulp.src(paths.vendor)
-        .pipe(gulp.dest('./build/vendor'))
-        .pipe(connect.reload());
+        .pipe(gulp.dest('./public/vendor'));
+        //.pipe(connect.reload());
 })
 
 gulp.task('watch', function() {
@@ -97,4 +97,4 @@ gulp.task('test', function() {
 
     console.log(package.dependencies)
 })
-gulp.task('default', ['connect', 'styles', 'templates', 'scripts', 'vendor',  'watch'])
+gulp.task('default', ['styles', 'templates', 'scripts', 'vendor',  'watch'])
