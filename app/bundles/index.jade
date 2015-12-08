@@ -1,0 +1,34 @@
+extends ./layouts/main.jade
+block content
+
+  section(block="section", mods="type: main", mix="block: js-header")
+    div(elem="content-wrap", mods="header-blurred", mix="block: js-header elem: content-wrap")
+      h1(elem="header") LOl
+
+      p(elem="text") Consectetur lorem ad sed hic numquam doloribus est minima reprehenderit laudantium. Necessitatibus consequuntur dignissimos vel aperiam temporibus. Nam molestias laboriosam ex veritatis illo eos. Corporis soluta nulla eveniet doloremque consequatur!
+
+      +button('Подписаться')
+
+  section(block="section")
+    div(block="steps", mix="block: section elem: content-wrap, block: js-steps")
+        div(elem="step")
+            div(elem="img"): img(src="")
+            h4(elem="header") First step
+            div(elem="description")
+        div(elem="step")
+            div(elem="img"): img(src="")
+            h4(elem="header") Second step
+            div(elem="description")
+        div(elem="step")
+            div(elem="img"): img(src="")
+            h4(elem="header") Third step
+            div(elem="description")
+
+  section(block="section")
+    div(elem="content-wrap")
+      h2(elem="header") Заголовок
+
+      p(elem="text") Adipisicing consequuntur similique excepturi perferendis maxime at autem numquam labore debitis corporis? Totam numquam voluptatum laboriosam dicta esse soluta! Nihil dolorem ratione nemo incidunt ullam, vitae obcaecati asperiores quasi dolore deleniti atque cumque. Corporis error perspiciatis obcaecati libero quae odit amet. Itaque explicabo quisquam nesciunt fugit blanditiis deserunt illum dolores.
+
+
+

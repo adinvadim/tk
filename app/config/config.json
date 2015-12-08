@@ -1,0 +1,26 @@
+{
+    "server": {
+        "port": 5000
+    },
+    "mongoose": {
+        "uri": "mongodb://localhost/tk",
+        "options": {
+            "server": {
+                "socketOptions": {
+                    "keepAlive": 1
+                }
+            }
+        }
+    },
+    "session": {
+        "secret": "GirlsAndDrugs",
+        "key": "sid",
+        "cookie": {
+            "maxAge": null,
+            "path": "/",
+            "httpOnly": true
+        },
+        "resave": true,
+        "saveUninitialized": true
+    }
+}

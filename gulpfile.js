@@ -1,36 +1,28 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var jade = require('gulp-jade');
-var autoprefixer = require('autoprefixer');
-var postcss = require('gulp-postcss');
-var posthtml = require('gulp-posthtml');
-var csscomb = require('gulp-csscomb');
-var csso = require('gulp-csso');
-var connect = require('gulp-connect');
-var rename = require('gulp-rename');
-var plumber = require('gulp-plumber');
-var jimp = require('gulp-jimp');
-var image = require('gulp-image');
-var package = require('./package.json')
+'use strict';
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const jade = require('gulp-jade');
+const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const posthtml = require('gulp-posthtml');
+const csscomb = require('gulp-csscomb');
+const csso = require('gulp-csso');
+const rename = require('gulp-rename');
+const plumber = require('gulp-plumber');
+const jimp = require('gulp-jimp');
+const image = require('gulp-image');
+const gls = require('gulp-live-server');
+const flatten = require('gulp-flatten')
 
 
-var paths = {
-    styles: 'blocks/**/*.sass',
-    templates: 'src/jade/*.jade',
-    images: 'src/images/*',
+const paths = {
+    styles: 'app/blocks/**/*.sass',
+    images: 'app/blocks/**/images/*',
     scripts: 'src/js/*.js',
-    blurImages: 'src/images/*.header-bg.jpg',
-    vendor: 'src/vendor/*'
-
+    blurImages: 'public/images/**/*.header-bg.jpg',
+    vendor: 'vendor/*',
 }
 
-gulp.task('connect', function() {
-    connect.server({
-        root: 'public',
-        livereload: true,
-        port: 1337
-    })
-})
 
 gulp.task('blur', function() {
     gulp.src(paths.blurImages)
@@ -38,63 +30,51 @@ gulp.task('blur', function() {
         .pipe(rename({
             suffix: '.blur'
         }))
-        .pipe(gulp.dest('./src/images/'))
+        .pipe(gulp.dest((file) => { return file.base }));
 })
 
 gulp.task('images', function() {
     gulp.src(paths.images)
         .pipe(image())
-        .pipe(gulp.dest('./public/images/'))
+        .pipe(flatten({ includeParents: 1} ))
+        .pipe(gulp.dest('./public/images/'));
 })
 gulp.task('styles', function() {
-    var processors = [
+    let processors = [
         autoprefixer(),
         require('postcss-fontpath'),
     ];
-    gulp.src(paths.styles)
+    gulp.src(['./app/blocks/main.sass', './app/blocks/admin.sass'])
         .pipe(plumber())
         .pipe(sass())
         .pipe(postcss(processors))
         .pipe(gulp.dest('./public/css'));
-        //.pipe(connect.reload());
 
-})
-
-gulp.task('templates', function() {
-    var processors = [
-        require('posthtml-bem')()
-    ]
-
-    gulp.src(paths.templates)
-        .pipe(plumber())
-        .pipe(jade({ pretty: true }))
-        .pipe(posthtml(processors))
-        .pipe(gulp.dest('./public/'));
-        //.pipe(connect.reload());
 })
 
 
 gulp.task('scripts', function() {
     gulp.src(paths.scripts)
         .pipe(gulp.dest('./public/js'));
-        //.pipe(connect.reload());
 })
 
 gulp.task('vendor', function() {
     gulp.src(paths.vendor)
         .pipe(gulp.dest('./public/vendor'));
-        //.pipe(connect.reload());
 })
 
 gulp.task('watch', function() {
-    gulp.watch(paths.styles, ['styles']);
-    gulp.watch(paths.templates, ['templates']);
-    gulp.watch(paths.scripts, ['scripts']);
-    gulp.watch(paths.images, ['images']);
+
+    let server = gls.new('./app/server.js');
+    server.start().then(function(result) {
+        console.log(`Server exited with result ${result}`)
+    })
+    gulp.watch(paths.styles, ['styles', server.notify]);
+    gulp.watch(paths.templates, [server.notify]);
+    gulp.watch(paths.scripts, ['scripts', server.notify]);
+    gulp.watch(paths.images, ['images', server.notify]);
+    gulp.watch(['app.js'], [server.start.bind(server)]);
 });
 
-gulp.task('test', function() {
-
-    console.log(package.dependencies)
-})
-gulp.task('default', ['styles', 'templates', 'scripts', 'vendor',  'watch'])
+gulp.task('build', ['styles', 'scripts', 'images', 'blur', 'vendor', 'watch'])
+gulp.task('default', ['styles', 'scripts', 'vendor', 'watch'])

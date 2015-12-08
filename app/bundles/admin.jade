@@ -1,0 +1,14 @@
+extends ./layouts/admin.jade
+block content
+  form(action='/admin/login', block="login", method="POST", name="login-form")
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label(elem="form")
+      input.mdl-textfield__input(type='text', value='login')
+      label.mdl-textfield__label(for='sample1') Login
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label(elem="form")
+      input.mdl-textfield__input(type='password', value='password')
+      label.mdl-textfield__label(for='sample1') Password
+    button.button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--primary(elem="button", type="sumbit") Login
+    button#showValue.button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--primary(elem="button") Show value
+
+block js
+  script(src="/js/admin.js")
