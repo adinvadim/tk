@@ -46,7 +46,7 @@
     "material-design-lite": "^1.0.6",
     "mongoose": "^4.2.8",
     "morgan": "~1.6.1",
-    "nodemon": "^1.8.1",
+    "nconf": "^0.8.2",
     "posthtml": "^0.7.0",
     "posthtml-bem": "^0.2.2",
     "serve-favicon": "~2.3.0",
