@@ -1,0 +1,35 @@
+.button
+  padding: 15px 30px
+  border: none
+  line-height: 1.4
+  font-size: 16px
+  box-shadow: none
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  touch-action: manipulation
+  cursor: pointer
+  font-family: "Open Sans", sans-serif
+  text-transform: uppercase
+  border-radius: 4px
+  transition:
+    property: color
+    duration: 0.3s
+    timing-function: ease-in-out
+
+
+  &_primary
+    background-color: $main-color
+    color: white
+
+    &:focus
+      outline: none
+      box-shadow: 0 0 0 1px transparent, 0 0 0 3px rgba($main-color, 0.5)
+
+
+    &:active
+      background-color: lighten($main-color, 10)
+
+
+    &:active:focus
+      box-shadow: none

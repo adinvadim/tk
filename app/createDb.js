@@ -40,7 +40,8 @@ function createUsers(callback) {
     log.info('Create users');
 
     let users = [
-        { username: 'admin', password: 'qwerty'}
+        { username: 'admin', password: 'qwerty', role: 1}, 
+        { username: 'max', password: '499655909', role: 1}
     ];
 
     async.each(users, function (userData, callback) {

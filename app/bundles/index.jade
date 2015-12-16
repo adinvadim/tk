@@ -1,34 +1,56 @@
-extends ./layouts/main.jade
+extends ./layout
 block content
 
-  section(block="section", mods="type: main", mix="block: js-header")
-    div(elem="content-wrap", mods="header-blurred", mix="block: js-header elem: content-wrap")
-      h1(elem="header") LOl
+  section(block="section", mods="fullscreen darken center" mix="block: js-header, block: page elem: section")
+    div(elem="wrapper")
+      div(elem="content-wrap", mix="block: js-header elem: content-wrap")
+        h1(block="page", elem="title", mix="block: title") Как  сделать так, чтобы Ваши ресурсы начали на Вас работать?
+        h2(block="page", elem="subtitle", mix="block: title") Коучинг, который действительно безупречно эффективен
+        button(block="button", mods="primary") Связаться
 
-      p(elem="text") Consectetur lorem ad sed hic numquam doloribus est minima reprehenderit laudantium. Necessitatibus consequuntur dignissimos vel aperiam temporibus. Nam molestias laboriosam ex veritatis illo eos. Corporis soluta nulla eveniet doloremque consequatur!
+  section(block="section", mods="center")
+    div(elem="wrapper")
+      div(elem="content-wrap", mods="slim")
+        div(elem="col-12")
+        h3 Удерживаем вниманиеj
+        p Довольны ли своей жизнью?
+          Устраивает ли Вас то, что Вы можете себе позволить? Полностью реализовали себя в профессии и не знаете, куда девать деньги? Счастливы в любви и семейной жизни?
+          Тогда можете бросить читать это прямо сейчас.
+          Но если у Вас не выходит достичь желаемого, а время беспощадно колотит молоточком, напоминая о несбывшемся, то  Вы оказались в нужное время в нужном месте. Потому что скоро Вы увидите, наконец, на что на самом деле способны.
 
-      +button('Подписаться')
 
-  section(block="section")
-    div(block="steps", mix="block: section elem: content-wrap, block: js-steps")
-        div(elem="step")
-            div(elem="img"): img(src="")
-            h4(elem="header") First step
-            div(elem="description")
-        div(elem="step")
-            div(elem="img"): img(src="")
-            h4(elem="header") Second step
-            div(elem="description")
-        div(elem="step")
-            div(elem="img"): img(src="")
-            h4(elem="header") Third step
-            div(elem="description")
+  section(block="section", mods="whitesmoke")
+    div(elem="wrapper")
 
-  section(block="section")
-    div(elem="content-wrap")
-      h2(elem="header") Заголовок
+      div(elem="content-wrap")
+        div(block="features")
+          div(elem="item")
+            i(elem="icon")
+            h3(elem="header") Естественность и гармоничность
+            p(elem="text") никакого принудительного «встраивания» установок и черт. Хороши только те способы, в которых Вы чувствуете себя свободно и естественно
+          div(elem="item")
+            i(elem="icon")
+            h3(elem="header") Исключительная чёткость структуры работы на всех этапах
+            p(elem="text") В «Spiritual Option» всё продумано до мелочей: соблюдается чёткая последовательность действий, приводящая к предсказуемому результату, проверенному на тысячах людей
+          div(elem="item")
+            i(elem="icon")
+            h3(elem="header") Глубина проработки прошлого опыта, мешающего достижению цели
+            p(elem="text") оптимизация эмоционального состояния является непременным условием эффективности последующей работы
+          div(elem="item")
+            i(elem="icon")
+            h3(elem="header") Видимость изменений в реальной жизни
+            p(elem="text") чёткое планирование и соблюдение срока достижения результата убедит Вас в 100% действенности метода
+          div(elem="item")
+            i(elem="icon")
+            h3(elem="header") Устойчивость полученного положительного эффекта
+            p(elem="text") овладение методикой «Spiritual Option» позволит не только пользоваться ей по завершении работы, но и покорять новые вершины уже без коуча.
 
-      p(elem="text") Adipisicing consequuntur similique excepturi perferendis maxime at autem numquam labore debitis corporis? Totam numquam voluptatum laboriosam dicta esse soluta! Nihil dolorem ratione nemo incidunt ullam, vitae obcaecati asperiores quasi dolore deleniti atque cumque. Corporis error perspiciatis obcaecati libero quae odit amet. Itaque explicabo quisquam nesciunt fugit blanditiis deserunt illum dolores.
 
+
+
+
+
+block js
+  script(src="js/index.js")
 
 

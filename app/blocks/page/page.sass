@@ -1,19 +1,41 @@
 $nav-width: 90px
 
+html
+  font-size: 16px
+
 .page
   padding: 0
   margin: 0
   color: black
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  //font-family: "Open Sans", sans-serif
   font-weight: 300
   font-size: 16px
-  line-height: 1.5em
+  line-height: 1.5rem
   box-sizing: border-box
 
-  &__nav
-    top: 0
-    left: 0
-    right: 0
+
+  &__section
+
+    background-image: url(/images/section/white-laptop-female-hand-note-pen-phone-desk.jpg)
+    background-position: no-repeat
+    background-attachment: fixed
+    background-color: $main-color
+    color: white
+    z-index: -1
+
+    background-size: cover
 
 
+    .section__content-wrap
+      text-align: center
+
+
+  &__title
+    text-transform: uppercase
+    font-size: 3rem
+    font-weight: bold
+
+  &__subtitle
+    font-size: 2rem
 

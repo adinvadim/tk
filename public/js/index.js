@@ -1,8 +1,8 @@
 (function($, window, document) {
     var LandingPage = {
         el: {
-            headerSection: $('.section_type_main'),
-            headerWrapper: $('.section_type_main .section__content-wrap'),
+            headerSection: $('.js-header'),
+            headerWrapper: $('.js-header .section__content-wrap'),
             steps: $('.steps')
         },
 
@@ -26,7 +26,7 @@
             el.headerWrapper.css({
                 'margin-top': scroll + 'px'
             })
-            if(scroll > el.headerSection.height() - 300) {
+            if(scroll > el.headerSection.height() - 600) {
                 el.headerWrapper.addClass('section__content-wrap_hidden');
             } else {
                 el.headerWrapper.removeClass('section__content-wrap_hidden');

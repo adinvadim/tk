@@ -16,11 +16,13 @@ const flatten = require('gulp-flatten')
 
 
 const paths = {
-    styles: 'app/blocks/**/*.sass',
-    images: 'app/blocks/**/images/*',
-    scripts: 'src/js/*.js',
-    blurImages: 'public/images/**/*.header-bg.jpg',
-    vendor: 'vendor/*',
+    styles: ['app/blocks/**/*.sass', 'src/css/**/*.css'],
+    images: ['app/blocks/**/images/*', 'src/images/*'],
+    scripts: 'src/js/**/*.js',
+    vendor: {
+        css: 'src/vendor/**/*.css',
+        js: 'src/vendor/**/*.js'
+    }
 }
 
 
@@ -59,8 +61,9 @@ gulp.task('scripts', function() {
 })
 
 gulp.task('vendor', function() {
-    gulp.src(paths.vendor)
-        .pipe(gulp.dest('./public/vendor'));
+    //gulp.src(paths.vendor)
+        //.pipe(gulp.dest('./public/vendor'));
+    return
 })
 
 gulp.task('watch', function() {
@@ -73,7 +76,7 @@ gulp.task('watch', function() {
     gulp.watch(paths.templates, [server.notify]);
     gulp.watch(paths.scripts, ['scripts', server.notify]);
     gulp.watch(paths.images, ['images', server.notify]);
-    gulp.watch(['app.js'], [server.start.bind(server)]);
+    //gulp.watch(['./app/**/*.js'], [server.start.bind(server)]);
 });
 
 gulp.task('build', ['styles', 'scripts', 'images', 'blur', 'vendor', 'watch'])

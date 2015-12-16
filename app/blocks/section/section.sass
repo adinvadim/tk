@@ -1,31 +1,24 @@
 .section
-  display: block
-  height: 100vh
 
-  &_type
+  min-height: 60vh
+  height: 60vh
+  z-index: 1
 
-    &_main
-      display: flex
-      vertical-align: middle
-      align-items: center
-      height: 100vh
-      position: relative
-      overflow: hidden
+  /*
+   * Elements
+   */
 
-      background-image: url(/images/section/bg1.header-bg.jpg)
-      background-position: no-repeat
-      background-attachment: fixed
+  &__wrapper
+    height: 100%
+    width: 100%
 
-      background-size: cover
 
-      .section__text
-        font-size: 1.5rem
-        line-height: 2rem
-
+  &__text
+    font-size: 1.2rem
+    line-height: 2rem
 
   &__content-wrap
-    max-width: 800px
-    padding: 40px 20px
+    padding: 20px
     margin: 0 auto
     transition:
       property: transform, opacity
@@ -33,9 +26,13 @@
       timing-function: ease-in-out
     opacity: 1
 
+    &_slim
+      max-width: 800px
+
     &_hidden
       opacity: 0
       transform: scale(0.8)
+
 
     &_header-blurred
       padding: 20px
@@ -46,3 +43,24 @@
       box-shadow: 0 20px 40px rgba(black,.6)
 
 
+  /*
+   * Mods
+   */
+
+  &_fullscreen
+    height: 100vh
+
+  &_whitesmoke
+    background-color: #f5f5fa
+
+  &_darken
+
+    .section__wrapper
+      background-color: rgba(black, 0.5)
+
+  &_center
+
+    .section__wrapper
+      display: flex
+      vertical-align: middle
+      align-items: center

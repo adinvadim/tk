@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 5000
+        "port": 2000
     },
     "mongoose": {
         "uri": "mongodb://localhost/tk",

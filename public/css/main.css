@@ -1,3 +1,6 @@
+html {
+  font-size: 16px; }
+
 .page {
   padding: 0;
   margin: 0;
@@ -5,39 +8,43 @@
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 1.5rem;
   box-sizing: border-box; }
-  .page__nav {
-    top: 0;
-    left: 0;
-    right: 0; }
-
-.section {
-  display: block;
-  height: 100vh; }
-  .section_type_main {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    vertical-align: middle;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background-image: url(/images/section/bg1.header-bg.jpg);
+  .page__section {
+    background-image: url(/images/section/white-laptop-female-hand-note-pen-phone-desk.jpg);
     background-position: no-repeat;
     background-attachment: fixed;
+    background-color: #34495e;
+    color: white;
+    z-index: -1;
     background-size: cover; }
-    .section_type_main .section__text {
-      font-size: 1.5rem;
-      line-height: 2rem; }
+    .page__section .section__content-wrap {
+      text-align: center; }
+  .page__title {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: bold; }
+  .page__subtitle {
+    font-size: 2rem; }
+
+.section {
+  min-height: 60vh;
+  height: 60vh;
+  z-index: 1;
+  /*
+   * Elements
+   */
+  /*
+   * Mods
+   */ }
+  .section__wrapper {
+    height: 100%;
+    width: 100%; }
+  .section__text {
+    font-size: 1.2rem;
+    line-height: 2rem; }
   .section__content-wrap {
-    max-width: 800px;
-    padding: 40px 20px;
+    padding: 20px;
     margin: 0 auto;
     -webkit-transition-property: opacity, -webkit-transform;
     transition-property: opacity, -webkit-transform;
@@ -48,6 +55,8 @@
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     opacity: 1; }
+    .section__content-wrap_slim {
+      max-width: 800px; }
     .section__content-wrap_hidden {
       opacity: 0;
       -webkit-transform: scale(0.8);
@@ -60,8 +69,24 @@
       background-size: cover;
       color: white;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6); }
+  .section_fullscreen {
+    height: 100vh; }
+  .section_whitesmoke {
+    background-color: #f5f5fa; }
+  .section_darken .section__wrapper {
+    background-color: rgba(0, 0, 0, 0.5); }
+  .section_center .section__wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    vertical-align: middle;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
 
-.steps {
+.steps__wrapper {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -72,34 +97,45 @@
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
           justify-content: space-around; }
-  .steps__step {
-    position: relative;
-    -webkit-transition-property: opacity, -webkit-transform;
-    transition-property: opacity, -webkit-transform;
-    transition-property: transform, opacity;
-    transition-property: transform, opacity, -webkit-transform;
-    -webkit-transition-duration: 0.3s;
-            transition-duration: 0.3s;
-    -webkit-transition-timing-function: ease-in-out;
-            transition-timing-function: ease-in-out;
-    opacity: 0;
-    margin: 0 10px;
-    -webkit-transform: translateX(20px);
-        -ms-transform: translateX(20px);
-            transform: translateX(20px); }
-    .steps__step_show {
-      opacity: 1;
-      -webkit-transform: translateX(0px);
-          -ms-transform: translateX(0px);
-              transform: translateX(0px); }
-  .steps__img {
-    width: 200px;
-    height: 200px;
-    border-radius: 5px;
-    background: pink; }
-  .steps__header {
-    text-align: center;
-    font-weight: normal; }
+
+.steps__step {
+  position: relative;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  margin: 0 10px;
+  -webkit-transform: translateX(20px);
+      -ms-transform: translateX(20px);
+          transform: translateX(20px); }
+  .steps__step_show {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px); }
+
+.steps__header {
+  text-align: center; }
+
+.steps__section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  vertical-align: middle;
+  background-image: url(/images/steps/coffee-cup-mug-desk-1.jpg);
+  background-position: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; }
+
+.title {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2; }
 
 .nav-list {
   display: -webkit-box;
@@ -118,3 +154,54 @@
     .nav-list__item_active {
       color: white;
       background: rgba(0, 0, 0, 0.16); }
+
+.button {
+  padding: 15px 30px;
+  border: none;
+  line-height: 1.4;
+  font-size: 16px;
+  box-shadow: none;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  border-radius: 4px;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out; }
+  .button_primary {
+    background-color: #34495e;
+    color: white; }
+    .button_primary:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px transparent, 0 0 0 3px rgba(52, 73, 94, 0.5); }
+    .button_primary:active {
+      background-color: #46627f; }
+    .button_primary:active:focus {
+      box-shadow: none; }
+
+.features {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  margin: 0 auto;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .features__item {
+    width: 30%; }

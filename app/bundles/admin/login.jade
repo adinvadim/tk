@@ -1,0 +1,14 @@
+extends ./layout
+block content
+  div(block="admin-login", elem="wrapper")
+    form(action="#", block="admin-login", method="POST", name="login-form")
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label(elem="form")
+        input.mdl-textfield__input(type="text", name="username")
+        label.mdl-textfield__label(for="login") Логин
+      .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label(elem="form")
+        input.mdl-textfield__input(type="password", name="password")
+        label.mdl-textfield__label(for="password") Пароль
+      button.mdl-button.mdl-js-button.mdl-js-ripple-effect.mdl-button--primary(elem="button", type="submit") Войти
+
+block js
+  script(src="/js/admin.js")
