@@ -6,7 +6,7 @@ html
 .page
   padding: 0
   margin: 0
-  color: black
+  color: $text-color
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
   //font-family: "Open Sans", sans-serif
   font-weight: 300
@@ -21,7 +21,7 @@ html
     background-attachment: fixed
     background-color: $main-color
     color: white
-    z-index: -1
+    z-index: 1
 
     background-size: cover
 
@@ -31,12 +31,34 @@ html
 
 
   &__title
-    text-transform: uppercase
-    font-size: 3rem
+    //text-transform: uppercase
+    //font-size: 3rem
+    font-size: 1.5rem
     font-weight: bold
+    color: white
+    text-shadow: 0px 1px 0px rgba($text-color, 1);
+
+    @media (min-width: 600px)
+      font-size: 2rem
+
+    @media (min-width: 1100px)
+      font-size: 3rem
+
 
   &__subtitle
-    font-size: 2rem
+    //font-size: 2rem
+    font-size: 1.2rem
+    color: white
+    text-shadow: 0px 1px 0px rgba($text-color, 1);
+    @media (min-width: 600px)
+      font-size: 1.5rem
+
+    @media (min-width: 1100px)
+      font-size: 2rem
+
+  &__button
+    margin-top: 30px
+
 
 .cf:before, .cf:after
   content: " "
@@ -45,4 +67,6 @@ html
 .cf:after
   clear: both
 
-
+@media (min-width: 600px)
+  .page__section
+    height: 100vh

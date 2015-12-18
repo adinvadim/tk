@@ -35,26 +35,6 @@
       timing-function: ease-in-out
     opacity: 1
 
-    &_slim
-      max-width: 800px
-
-    &_hidden
-      opacity: 0
-      transform: scale(0.8)
-
-    &_grid
-      @include container()
-
-
-    &_header-blurred
-      padding: 20px
-      background-image: url(/images/section/bg1.header-bg.blur.jpg)
-      background-attachment: fixed
-      background-size: cover
-      color: white
-      box-shadow: 0 20px 40px rgba(black,.6)
-
-
   /*
    * Mods
    */
@@ -86,3 +66,15 @@
   &_fix
     min-height: 60vh
     height: auto
+
+  &_slim
+    .section__content-wrap
+      max-width: 1100px
+
+  &_grid
+    .section__content-wrap
+      @include container()
+
+  &_slim.section_grid
+    .section__content-wrap
+      @include container(1100px)

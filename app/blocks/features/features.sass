@@ -1,10 +1,10 @@
 .features
+  padding: 50px 0
   display: flex
   flex-wrap: wrap
   margin: 0 auto
   align-content: center
   justify-content: center
-  padding: 50px 0
 
   &__icon
     width: 100%
@@ -13,12 +13,13 @@
     text-align: center
     //color: $main-color
 
+  &__title
+    font-size: 1em
+
   &__item
-    //height: 400px
-    width: span(1 of 1)
+    width: span(12 of 12)
     @include gutters
     padding-bottom: 30px
-    //@include span(12 of 12)
 
     @media (min-width: 600px)
       width: span(1 of 2)
@@ -26,6 +27,5 @@
 
     @media (min-width: 1200px)
       width: span(2 of 8)
-
 
 
