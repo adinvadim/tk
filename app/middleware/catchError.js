@@ -2,7 +2,7 @@
 
 const HTTPError = require('../lib/errors').HTTPError;
 const log = require('../lib/logger');
-const errorHandler = require('errorHandler');
+const errorHandler = require('errorhandler');
 
 
 module.exports = function (err, req, res, next) {
