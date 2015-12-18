@@ -4,10 +4,28 @@
   margin: 0 auto
   align-content: center
   justify-content: center
+  padding: 50px 0
 
+  &__icon
+    width: 100%
+    // Important чтобы перекрыть размеры font-awesome
+    font-size: 100px !important
+    text-align: center
+    //color: $main-color
 
   &__item
-    width: 30%
+    //height: 400px
+    width: span(1 of 1)
+    @include gutters
+    padding-bottom: 30px
+    //@include span(12 of 12)
+
+    @media (min-width: 600px)
+      width: span(1 of 2)
+
+
+    @media (min-width: 1200px)
+      width: span(2 of 8)
 
 
 

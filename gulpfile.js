@@ -16,7 +16,7 @@ const flatten = require('gulp-flatten')
 
 
 const paths = {
-    styles: ['app/blocks/**/*.sass', 'src/css/**/*.css'],
+    styles: ['app/blocks/**/*.{sass,scss}', 'src/css/**/*.css'],
     images: ['app/blocks/**/images/*', 'src/images/*'],
     scripts: 'src/js/**/*.js',
     vendor: {

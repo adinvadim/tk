@@ -12,7 +12,6 @@ html
   font-weight: 300
   font-size: 16px
   line-height: 1.5rem
-  box-sizing: border-box
 
 
   &__section
@@ -38,4 +37,12 @@ html
 
   &__subtitle
     font-size: 2rem
+
+.cf:before, .cf:after
+  content: " "
+  display: table
+
+.cf:after
+  clear: both
+
 

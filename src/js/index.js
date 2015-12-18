@@ -8,7 +8,6 @@
 
         init: function() {
             this.bindUIActions();
-            this.headerAnimation();
         },
 
         bindUIActions: function() {
@@ -52,5 +51,5 @@
         }
 
     }
-    LandingPage.init();
+    //LandingPage.init();
 }(window.jQuery, window, document));

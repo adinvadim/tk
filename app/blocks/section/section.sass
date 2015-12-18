@@ -1,21 +1,30 @@
 .section
 
-  min-height: 60vh
-  height: 60vh
-  z-index: 1
+  position: relative
+  font-size: 1.1rem
 
   /*
    * Elements
    */
 
   &__wrapper
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
     height: 100%
     width: 100%
+    z-index: -1
 
 
   &__text
     font-size: 1.2rem
     line-height: 2rem
+
+  &__fix-height
+    height: 60vh
+
 
   &__content-wrap
     padding: 20px
@@ -32,6 +41,9 @@
     &_hidden
       opacity: 0
       transform: scale(0.8)
+
+    &_grid
+      @include container()
 
 
     &_header-blurred
@@ -58,9 +70,19 @@
     .section__wrapper
       background-color: rgba(black, 0.5)
 
-  &_center
+  &_primary
+    color: white
+    background-color: $main-color
 
-    .section__wrapper
-      display: flex
-      vertical-align: middle
-      align-items: center
+  &_video
+    position: relative
+
+
+  &_center
+    display: flex
+    vertical-align: middle
+    align-items: center
+
+  &_fix
+    min-height: 60vh
+    height: auto

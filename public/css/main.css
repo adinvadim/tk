@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 16px; }
 
@@ -8,13 +9,12 @@ html {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   font-size: 16px;
-  line-height: 1.5rem;
-  box-sizing: border-box; }
+  line-height: 1.5rem; }
   .page__section {
     background-image: url(/images/section/white-laptop-female-hand-note-pen-phone-desk.jpg);
     background-position: no-repeat;
     background-attachment: fixed;
-    background-color: #34495e;
+    background-color: #1abc9c;
     color: white;
     z-index: -1;
     background-size: cover; }
@@ -27,10 +27,16 @@ html {
   .page__subtitle {
     font-size: 2rem; }
 
+.cf:before, .cf:after {
+  content: " ";
+  display: table; }
+
+.cf:after {
+  clear: both; }
+
 .section {
-  min-height: 60vh;
-  height: 60vh;
-  z-index: 1;
+  position: relative;
+  font-size: 1.1rem;
   /*
    * Elements
    */
@@ -38,11 +44,19 @@ html {
    * Mods
    */ }
   .section__wrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    z-index: -1; }
   .section__text {
     font-size: 1.2rem;
     line-height: 2rem; }
+  .section__fix-height {
+    height: 60vh; }
   .section__content-wrap {
     padding: 20px;
     margin: 0 auto;
@@ -62,6 +76,15 @@ html {
       -webkit-transform: scale(0.8);
           -ms-transform: scale(0.8);
               transform: scale(0.8); }
+    .section__content-wrap_grid {
+      box-sizing: border-box;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto; }
+      .section__content-wrap_grid:after {
+        content: " ";
+        display: block;
+        clear: both; }
     .section__content-wrap_header-blurred {
       padding: 20px;
       background-image: url(/images/section/bg1.header-bg.blur.jpg);
@@ -75,7 +98,12 @@ html {
     background-color: #f5f5fa; }
   .section_darken .section__wrapper {
     background-color: rgba(0, 0, 0, 0.5); }
-  .section_center .section__wrapper {
+  .section_primary {
+    color: white;
+    background-color: #1abc9c; }
+  .section_video {
+    position: relative; }
+  .section_center {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -85,6 +113,9 @@ html {
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
+  .section_fix {
+    min-height: 60vh;
+    height: auto; }
 
 .steps__wrapper {
   display: -webkit-box;
@@ -177,13 +208,13 @@ html {
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out; }
   .button_primary {
-    background-color: #34495e;
+    background-color: #1abc9c;
     color: white; }
     .button_primary:focus {
       outline: none;
-      box-shadow: 0 0 0 1px transparent, 0 0 0 3px rgba(52, 73, 94, 0.5); }
+      box-shadow: 0 0 0 1px transparent, 0 0 0 3px rgba(26, 188, 156, 0.5); }
     .button_primary:active {
-      background-color: #46627f; }
+      background-color: #28e1bd; }
     .button_primary:active:focus {
       box-shadow: none; }
 
@@ -202,6 +233,37 @@ html {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  padding: 50px 0; }
+  .features__icon {
+    width: 100%;
+    font-size: 100px !important;
+    text-align: center; }
   .features__item {
-    width: 30%; }
+    width: 80%;
+    margin-left: 0.83333%;
+    margin-right: 0.83333%;
+    padding-bottom: 30px; }
+    @media (min-width: 600px) {
+      .features__item {
+        width: 40%; } }
+    @media (min-width: 1200px) {
+      .features__item {
+        width: 22.5%; } }
+
+.quote {
+  quotes: "\201C" "\201D"; }
+  .quote:before {
+    content: open-quote;
+    color: #ccc;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em; }
+
+.list {
+  list-style-type: none; }
+  .list li:before {
+    color: #1abc9c;
+    padding-right: 10px;
+    content: "•"; }
