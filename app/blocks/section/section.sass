@@ -1,7 +1,10 @@
+$ctx: ".section"
+
+
 .section
 
   position: relative
-  font-size: 1.1rem
+  z-index: 1
 
   /*
    * Elements
@@ -43,9 +46,17 @@
     height: 100vh
 
   &_whitesmoke
-    background-color: #f5f5fa
+    background-color: $whitesmoke-color
+
+  &_darkslategray
+    color: white
+    background-color: $darkslategray-color
+
+    #{$ctx}__title
+      color: white
 
   &_darken
+    color: white
 
     .section__wrapper
       background-color: rgba(black, 0.5)
@@ -53,6 +64,9 @@
   &_primary
     color: white
     background-color: $main-color
+
+    #{$ctx}__title
+      color: white
 
   &_video
     position: relative
@@ -71,10 +85,27 @@
     .section__content-wrap
       max-width: 1100px
 
+  &_slim.section_grid
+    .section__content-wrap
+      @include container(1100px)
+
+  &_ultra-slim
+    #{$ctx}__content-wrap
+      max-width: 900px
+
   &_grid
     .section__content-wrap
       @include container()
 
-  &_slim.section_grid
+
+  &_collapse
     .section__content-wrap
-      @include container(1100px)
+      padding: 20px 0
+
+  &_img_coffee
+    background-position: no-repeat
+    background-attachment: fixed
+    background-image: url(/images/section/coffee-cup-mug-dest.jpg)
+
+    #{$ctx}__title
+      color: white

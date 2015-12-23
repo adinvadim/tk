@@ -1,3 +1,9 @@
+@mixin set-title-font-size($list)
+  .title
+    @each $item in $list
+      &_level_#{index($list, $item)}
+        font-size: $item
+
 .title
   margin: 1.414em 0 0.5em
   line-height: 1.2
@@ -5,3 +11,20 @@
 
   &_center
     text-align: center
+
+  &_white
+    color: white
+
+
+$font-size: (1.602rem , 1.424rem, 1.266rem, 1.125rem)
+@include set-title-font-size($font-size)
+
+@media (min-width: 600px)
+  $font-size: (3.157rem , 2.369rem, 1.777rem, 1.333rem)
+  @include set-title-font-size($font-size)
+@media (min-width: 1200px)
+  $font-size: (4rem , 2.8rem, 2rem, 1.414rem)
+  @include set-title-font-size($font-size)
+
+
+

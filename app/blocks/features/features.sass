@@ -1,16 +1,17 @@
+$ctx: ".features"
+$green: #43A047
 .features
   padding: 50px 0
   display: flex
   flex-wrap: wrap
   margin: 0 auto
-  align-content: center
-  justify-content: center
 
   &__icon
     width: 100%
     // Important чтобы перекрыть размеры font-awesome
     font-size: 100px !important
-    text-align: center
+    margin-left: 20px
+    margin-right: 20px
     //color: $main-color
 
   &__title
@@ -18,14 +19,79 @@
 
   &__item
     width: span(12 of 12)
-    @include gutters
-    padding-bottom: 30px
+    margin-bottom: 30px
+    @include gutters(4)
 
-    @media (min-width: 600px)
-      width: span(1 of 2)
+    &_col_1-of-4
+
+      @media (min-width: 600px)
+        width: span(1 of 2)
 
 
-    @media (min-width: 1200px)
-      width: span(2 of 8)
+      @media (min-width: 1200px)
+        width: span(2 of 8)
+
+    &_col_1-of-2
+
+      @media (min-width: 600px)
+        width: span(1 of 2)
+
+  &__list
+    li:before
+      color: $text-color
+
+  &_border
+    #{$ctx}__item
+      padding: 0 10px
+      border: 1px solid #eee
+      border-radius: 5px
+      @media (min-width: 600px)
+        @include grow
+    #{$ctx}__item
+      border: 1px solid #eee
+      border-radius: 5px
+      &_primary
+        border: 1px solid $green
+
+  &_list
+    #{$ctx}__icon
+      display: inline-block
+      width: auto
+      vertical-align: center
+
+    #{$ctx}__text
+      display: inline-block
+      vertical-align: center
+      flex-direction: column
+
+      @media (min-width: 600px)
+        width: span(2 of 3)
+
+    #{$ctx}__item
+      flex-direction: column;
+      display: flex
+      align-items: center
+      text-align: center
+      &:nth-child(even)
+        @media (min-width: 600px)
+          flex-direction: row-reverse;
+          text-align: right
+      @media (min-width: 600px)
+        text-align: left
+        flex-direction: row;
+
+  &_center
+    align-content: center
+    justify-content: center
+
+    #{$ctx}__text
+      text-align: center
+
+    #{$ctx}__icon
+      text-align: center
+
+    #{$ctx}__title
+      text-align: center
+
 
 
