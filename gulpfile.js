@@ -12,7 +12,7 @@ const plumber = require('gulp-plumber');
 const jimp = require('gulp-jimp');
 const image = require('gulp-image');
 const gls = require('gulp-live-server');
-const flatten = require('gulp-flatten')
+const flatten = require('gulp-flatten');
 
 
 const paths = {
@@ -53,6 +53,19 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('./public/css'));
 
 })
+gulp.task('styles:build', function() {
+    let processors = [
+        autoprefixer(),
+        require('postcss-fontpath'),
+    ];
+    gulp.src(['./app/blocks/main.sass', './app/blocks/admin.sass'])
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(postcss(processors))
+        .pipe(csso())
+        .pipe(gulp.dest('./public/css'));
+
+})
 
 
 gulp.task('scripts', function() {
@@ -79,5 +92,5 @@ gulp.task('watch', function() {
     //gulp.watch(['./app/**/*.js'], [server.start.bind(server)]);
 });
 
-gulp.task('build', ['styles', 'scripts', 'images', 'blur', 'vendor', 'watch'])
+gulp.task('build', ['styles:build', 'images', 'vendor', 'watch'])
 gulp.task('default', ['styles', 'scripts', 'vendor', 'watch'])
