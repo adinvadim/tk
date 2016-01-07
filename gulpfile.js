@@ -6,19 +6,23 @@ const autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const posthtml = require('gulp-posthtml');
 const csscomb = require('gulp-csscomb');
-const csso = require('gulp-csso');
+const cssnano = require('cssnano');
 const rename = require('gulp-rename');
 const plumber = require('gulp-plumber');
 const jimp = require('gulp-jimp');
 const image = require('gulp-image');
 const gls = require('gulp-live-server');
 const flatten = require('gulp-flatten');
+const webpack = require('webpack');
+const sourcemaps = require('gulp-sourcemaps');
+const webpackConfig = require('./webpack.config.js');
+const webpackConfigBuild = require('./webpack.build.config.js');
 
 
 const paths = {
     styles: ['app/blocks/**/*.{sass,scss}', 'src/css/**/*.css'],
     images: ['app/blocks/**/images/*', 'src/images/*'],
-    scripts: 'src/js/**/*.js',
+    scripts: ['app/blocks/**/*.js', 'app/bundles/**/*.js', 'src/js/**/*.js'],
     vendor: {
         css: 'src/vendor/**/*.css',
         js: 'src/vendor/**/*.js'
@@ -48,30 +52,28 @@ gulp.task('styles', function() {
     ];
     gulp.src(['./app/blocks/main.sass', './app/blocks/admin.sass'])
         .pipe(plumber())
+        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(postcss(processors))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./public/css'));
 
 })
 gulp.task('styles:build', function() {
     let processors = [
         autoprefixer(),
+        cssnano(),
         require('postcss-fontpath'),
     ];
     gulp.src(['./app/blocks/main.sass', './app/blocks/admin.sass'])
         .pipe(plumber())
         .pipe(sass())
         .pipe(postcss(processors))
-        .pipe(csso())
         .pipe(gulp.dest('./public/css'));
 
 })
 
 
-gulp.task('scripts', function() {
-    gulp.src(paths.scripts)
-        .pipe(gulp.dest('./public/js'));
-})
 
 gulp.task('vendor', function() {
     //gulp.src(paths.vendor)
@@ -87,10 +89,28 @@ gulp.task('watch', function() {
     })
     gulp.watch(paths.styles, ['styles', server.notify]);
     gulp.watch(paths.templates, [server.notify]);
-    gulp.watch(paths.scripts, ['scripts', server.notify]);
+    gulp.watch(paths.scripts, ['webpack', server.notify]);
     gulp.watch(paths.images, ['images', server.notify]);
     //gulp.watch(['./app/**/*.js'], [server.start.bind(server)]);
 });
 
-gulp.task('build', ['styles:build', 'images', 'vendor', 'watch'])
-gulp.task('default', ['styles', 'scripts', 'vendor', 'watch'])
+gulp.task('webpack', function () {
+    webpack(webpackConfig, function (err, stats) {
+        if (err) console.log(err)
+        console.log(stats.toString({
+            colors: true
+        }));
+    });
+});
+
+gulp.task('webpack:build', function () {
+    webpack(webpackConfigBuild, function (err, stats) {
+        if (err) console.log(err)
+        console.log(stats.toString({
+            colors: true
+        }));
+    });
+});
+
+gulp.task('build', ['styles:build', 'webpack:build', 'images', 'vendor'])
+gulp.task('default', ['styles',  'webpack', 'watch'])

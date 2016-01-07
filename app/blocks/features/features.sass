@@ -1,10 +1,25 @@
 $ctx: ".features"
 $green: #43A047
+
 .features
-  padding: 50px 0
-  display: flex
-  flex-wrap: wrap
-  margin: 0 auto
+  margin: 50px auto 0 auto
+
+  /*
+   * Elements
+   */
+
+  &__header
+    background-color: $main-color
+    color: white
+    height: 100px
+    padding: 20px
+    display: flex
+    flex-direction: column
+
+  &__text
+    padding-left: 10px
+    padding-right: 10px
+
 
   &__icon
     width: 100%
@@ -18,8 +33,8 @@ $green: #43A047
     font-size: 1em
 
   &__item
-    width: span(12 of 12)
     margin-bottom: 30px
+    width: span(12 of 12)
     @include gutters(4)
 
     &_col_1-of-4
@@ -32,13 +47,27 @@ $green: #43A047
         width: span(2 of 8)
 
     &_col_1-of-2
-
       @media (min-width: 600px)
         width: span(1 of 2)
+
+    &_center
+      #{$ctx}__text
+        text-align: center
+
+      #{$ctx}__icon
+        text-align: center
+
+      #{$ctx}__title
+        text-align: center
 
   &__list
     li:before
       color: $text-color
+
+
+  /*
+   * Mods
+   */
 
   &_border
     #{$ctx}__item
@@ -68,30 +97,102 @@ $green: #43A047
         width: span(2 of 3)
 
     #{$ctx}__item
-      flex-direction: column;
+      flex-direction: column
       display: flex
       align-items: center
       text-align: center
-      &:nth-child(even)
-        @media (min-width: 600px)
-          flex-direction: row-reverse;
-          text-align: right
       @media (min-width: 600px)
         text-align: left
-        flex-direction: row;
+        flex-direction: row
+
+  &_list#{$ctx}_2n-right
+    #{$ctx}__item
+      &:nth-child(even)
+        @media (min-width: 600px)
+          flex-direction: row-reverse
+          text-align: right
 
   &_center
     align-content: center
     justify-content: center
 
-    #{$ctx}__text
-      text-align: center
+
+  &_test-hover
+    #{$ctx}__item
+      &:hover
+        background-color: rgba($main-color, 0.5)
+
+  &_grid
+    display: flex
+    flex-wrap: wrap
+
+  &_images
+    position: relative
+    @media (min-width: 600px)
+      &::after
+        background-size: cover
+        background-repeat: no-repeat
+        content: ""
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        position: absolute
+        z-index: -1
+        background-image: url("/images/features/landscape-mountains-nature-man.jpg")
+
+    #{$ctx}__item
+      @include gutters(4 inside)
+      width: span(4 of 4)
+      padding-top: 40px
+      padding-bottom: 40px
+      margin-bottom: 0px
+      margin-left: 0
+      margin-right: 0
+      color: white
+      background-color: rgba($main-color, 0.5)
+
+      @media (max-width: 600px)
+        position: relative
+
+      &::after
+        background-repeat: no-repeat
+        content: ""
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        position: absolute
+        z-index: -1
+
+      @media (min-width: 600px)
+        background-color: $main-color
+        &:hover
+          background-color: rgba($main-color, 0.7)
+
+      #{$ctx}__title:
+        color: white
+
+      $list-of-images: ("landscape-mountains-nature-man.jpg", "modern-meeting-working.jpg","modern-meeting-working.jpg","modern-meeting-working.jpg","modern-meeting-working.jpg",)
+
+      //@for $i from 1 through length($list-of-images)
+        //$item: nth($list-of-images, $i)
+        //&:nth-child(#{$i})
+          //&::after
+            //background-image: url("/images/features/" + $item)
+  &_swiper
+    height: 370px
+    margin-bottom: 50px
+
+
+    #{$ctx}__item
+      margin-left: 0
+      margin-right: 0
+      box-sizing: border-box
+      background-color: white
 
     #{$ctx}__icon
-      text-align: center
-
-    #{$ctx}__title
-      text-align: center
+      font-size: 50px !important
 
 
 

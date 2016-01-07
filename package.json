@@ -8,6 +8,8 @@
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "connect-livereload": "^0.5.4",
+    "cssnano": "^3.4.0",
+    "csso": "^1.4.4",
     "gulp": "^3.9.0",
     "gulp-bem": "^1.0.2",
     "gulp-connect": "^2.2.0",
@@ -25,14 +27,18 @@
     "gulp-posthtml": "^1.5.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-stylus": "^2.1.0",
     "gulp-watch": "^4.3.5",
     "nconf": "^0.8.2",
+    "node-sass": "^3.4.2",
     "nodemon": "^1.8.1",
     "postcss-fontpath": "^0.2.0",
     "posthtml-bem": "^0.2.2",
     "posthtml-classes": "^0.2.1",
-    "susy": "^2.2.9"
+    "sass-loader": "^3.1.2",
+    "susy": "^2.2.9",
+    "webpack": "^1.12.10"
   },
   "dependencies": {
     "async": "^1.5.0",
@@ -57,6 +63,7 @@
     "posthtml": "^0.7.0",
     "posthtml-bem": "^0.2.2",
     "serve-favicon": "~2.3.0",
+    "swiper": "^3.2.7",
     "winston": "^2.1.1"
   },
   "private": true,

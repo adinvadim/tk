@@ -1,13 +1,13 @@
-extends ./layout
+extends ../layout
 block extraCss
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
 block content
 
-  section(block="section", mods="center darken" mix="block: js-header, block: page elem: section")
+  section(block="section", mods="center darken slim" mix="block: js-header, block: page elem: section")
     div(elem="wrapper")
     div(elem="content-wrap", mix="block: js-header elem: content-wrap")
       h1(block="page", elem="title", mix="block: title") Как  сделать так, чтобы Ваши ресурсы начали на Вас работать?
-      h2(block="page", elem="subtitle", mix="block: title") Коучинг, который действительно безупречно эффективен
+      p(block="page", elem="subtitle") Коучинг, который действительно безупречно эффективен
       button(block="button", mods="primary", mix="block: page elem: button") Связаться
 
   section(block="section", mods="center fix slim")
@@ -61,86 +61,116 @@ block content
   section(block="section", mods="ultra-slim")
     div(elem="content-wrap")
       h3(block="title", mods="level:3 center") В чём отличия методики «Spiritual Option»?
-      div(block="features", mods="border center")
-        div(elem="item", mods="primary col:1-of-2")
+      div(block="features", mods="border center grid")
+        div(elem="item", mods="primary col:1-of-2 center")
           h3(elem="title") SPIRITUAL OPTION
           ul(elem="list")
             li Изменения продолжаются после окончания коучинга
             li Развивается самостоятельная способность добиваться целей
             li Индивидуальность в противовес универсальности: все стратегии чётко ориентированы на конкретного человека
-        div(elem="item", mods="col:1-of-2")
+        div(elem="item", mods="col:1-of-2 center")
           h3(elem="title") Другие методы коучинга
           ul(elem="list")
             li Кратковременный результат
             li Зависимость от коуча
             li Решения, не подходящие конкретной личности
-        div(elem="item", mods="primary col:1-of-2")
+        div(elem="item", mods="primary col:1-of-2 center")
           h3(elem="title") SPIRITUAL OPTION
           ul(elem="list")
             li Работа ориентирована на достижение конкретного, измеряемого результата
             li Изменения запускаются очень быстро, позволяя произвести расчёт предполагаемой даты достижения целей
-        div(elem="item", mods="col:1-of-2")
+        div(elem="item", mods="col:1-of-2 center")
           h3(elem="title") Психотерапия
           ul(elem="list")
             li Предоставляет богатые возможности для исследования себя, но не заточена на достижение конкретных целей
             li Результат достигается в течение длительного времени
 
-  section(block="section", mods="primary")
+  section(block="section", mods="slim whitesmoke")
     div(elem="content-wrap")
-      h3(elem="title", mix="block:title mods:[level:3 center]") Преимущества Spiritual Option
-      div(block="features", mods="center")
-        div(elem="item", mods="col:1-of-4")
-          i(elem="icon", class="fa fa-pagelines ")
-          h3(elem="title") Естественность и гармоничность
-          p(elem="text") никакого принудительного «встраивания» установок и черт. Хороши только те способы, в которых Вы чувствуете себя свободно и естественно
-        div(elem="item", mods="col:1-of-4")
-          i(elem="icon", class="fa fa-cubes ")
-          h3(elem="title") Исключительная чёткость структуры работы на всех этапах
-          p(elem="text") В «Spiritual Option» всё продумано до мелочей: соблюдается чёткая последовательность действий, приводящая к предсказуемому результату, проверенному на тысячах людей
-        div(elem="item", mods="col:1-of-4")
-          i(elem="icon", class="fa fa-history ")
-          h3(elem="title") Глубина проработки прошлого опыта, мешающего достижению цели
-          p(elem="text") оптимизация эмоционального состояния является непременным условием эффективности последующей работы
-        div(elem="item", mods="col:1-of-4")
-          i(elem="icon", class="fa fa-child ")
-          h3(elem="title") Видимость изменений в реальной жизни
-          p(elem="text") чёткое планирование и соблюдение срока достижения результата убедит Вас в 100% действенности метода
-        div(elem="item", mods="col:1-of-4")
-          i(elem="icon", class="fa fa-graduation-cap ")
-          h3(elem="title") Устойчивость полученного положительного эффекта
-          p(elem="text") овладение методикой «Spiritual Option» позволит не только пользоваться ей по завершении работы, но и покорять новые вершины уже без коуча.
+      //-h3(elem="title", mix="block:title mods:[level:3 center]") Преимущества Spiritual Option
+      .swiper-container
+        .swiper-wrapper(block="features", mods="swiper")
+          .swiper-slide(elem="item", mods="center")
+            header(elem="header")
+              i(elem="icon", class="fa fa-pagelines ")
+              h3(elem="title") Естественность и гармоничность
+            p(elem="text") никакого принудительного «встраивания» установок и черт. Хороши только те способы, в которых Вы чувствуете себя свободно и естественно
+          .swiper-slide(elem="item", mods="center")
+            header(elem="header")
+              i(elem="icon", class="fa fa-cubes ")
+              h3(elem="title") Исключительная чёткость структуры работы на всех этапах
+            p(elem="text") В «Spiritual Option» всё продумано до мелочей: соблюдается чёткая последовательность действий, приводящая к предсказуемому результату, проверенному на тысячах людей
+          .swiper-slide(elem="item", mods="center")
+            header(elem="header")
+              i(elem="icon", class="fa fa-history ")
+              h3(elem="title") Глубина проработки прошлого опыта, мешающего достижению цели
+            p(elem="text") оптимизация эмоционального состояния является непременным условием эффективности последующей работы
+          .swiper-slide(elem="item", mods="center")
+            header(elem="header")
+              i(elem="icon", class="fa fa-child ")
+              h3(elem="title") Видимость изменений в реальной жизни
+            p(elem="text") чёткое планирование и соблюдение срока достижения результата убедит Вас в 100% действенности метода
+          .swiper-slide(elem="item", mods="center")
+            header(elem="header")
+              i(elem="icon", class="fa fa-graduation-cap ")
+              h3(elem="title") Устойчивость полученного положительного эффекта
+            p(elem="text") овладение методикой «Spiritual Option» позволит не только пользоваться ей по завершении работы, но и покорять новые вершины уже без коуча.
+        .swiper-pagination
 
-  section(block="section", mods="darkslategray slim")
+  section(block="section", mods="darkslategray")
     div(elem="content-wrap")
       h3(elem="title", mix="block:title mods:[level:3 center]") Какие задачи можно решать с помощью «Spiritual Option»?
-      div(block="features", mods="list")
-        div(elem="item")
+      div(block="features", mods="center grid")
+        div(elem="item", mods="col:1-of-4 center")
           i(elem="icon", class="fa fa-users")
           p(elem="text") Гармонизация любых человеческих взаимоотношений (с партнёром, с детьми, с руководителем и коллегами)
-        div(elem="item")
+        div(elem="item", mods="col:1-of-4 center")
           i(elem="icon", class="fa fa-money ")
           p(elem="text") Достижение конкретных финансовых целей (как для успешных бизнесменов, ставящих новые амбициозные задачи, так и для людей, которые недостаточно удовлетворены уровнем своего дохода)
-        div(elem="item")
+        div(elem="item", mods="col:1-of-4 center")
           i(elem="icon", class="fa fa-cogs ")
           p(elem="text") Принятие сложных решений
-        div(elem="item")
+        div(elem="item", mods="col:1-of-4 center")
           i(elem="icon", class="fa fa-medkit ")
           p(elem="text") Работа с травмами, зависимостями, фобиями
-        div(elem="item")
+        div(elem="item", mods="col:1-of-4 center")
           i(elem="icon", class="fa fa-paint-brush ")
           p(elem="text") Развитие новых личностных качеств
-        div(elem="item")
+        div(elem="item", mods="col:1-of-4 center")
           i(elem="icon", class="fa fa-magic ")
           p(elem="text") Борьба с прокрастинацией, Работа с телом, Помощь в преодолении стрессовых ситуаций
 
 
+  section(block="section", mods="primary fix collapse")
+    div(elem="content-wrap")
+      h3(elem="title", mix="block:title mods:[level:3 center]") КАКИМ ОБРАЗОМ ДОСТИГАЕТСЯ ЦЕЛЬ?
+      div(block="features", mods="images")
+        div(elem="item", mods="center")
+          h3(elem="title") Модификация опыта.
+          div(elem="text") Прежде всего «Spiritual Option» работает с прошлым опытом, ограничивающими убеждениями, страхами и сомнениями, которые «резервируют» в Вашей личности значительную часть энергии. Перепроживая этот опыт в новом ключе, Вы разрушаете старые нейронные связи и высвобождаете те силы, жизненно необходимые для достижения поставленных целей.
+        div(elem="item", mods="center")
+          h3(elem="title") Создание желаемого образа цели
+          div(elem="text") «Spiritual Option» работает только с реальными задачами, которые полностью соответствуют внутреннему миру человека. На этом этапе коуч помогает отсечь всё то, что было когда-то навязано извне, и сформулировать чёткую цель, являющуюся истинным отражением желаний и потребностей клиента.
+        div(elem="item", mods="center")
+          h3(elem="title") Планирование
+          div(elem="text") Высвободившуюся в процессе работы колоссальную энергию очень важно направить в нужное русло, не позволяя ей расплескаться в хаотичных попытках осуществить задуманное. Коуч помогает клиенту создавать «идеальные сценарии» достижения целей, которые гармонично вписываются в уникальные особенности его личности.
+        div(elem="item", mods="center")
+          h3(elem="title") Техника восстановления после провалов.
+          div(elem="text") Было бы наивным полагать, будто у каждого сразу получается добиваться желаемого. Разумеется, любой из нас сталкивается с препятствиями, вынуждающими проявлять гибкость в отношении намеченных планов. Коуч поддерживает клиента в те моменты, когда его стратегия даёт сбой, и помогает неустанно совершенствовать её и всё больше приближать к реальности. До тех пор, пока она не приведёт к долгожданному результату!
 
 
 
 
-
-
-//-block js
+block js
+  script(src="js/index.js")
+  script.
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-71760679-1', 'auto');
+    ga('send', 'pageview');
+  //-script(src="js/")
   //-script(src="js/index.js")
 
 
