@@ -17,6 +17,9 @@ const webpack = require('webpack');
 const sourcemaps = require('gulp-sourcemaps');
 const webpackConfig = require('./webpack.config.js');
 const webpackConfigBuild = require('./webpack.build.config.js');
+const argv = require('yargs')
+    .boolean(['static'])
+    .argv
 
 
 const paths = {
@@ -83,7 +86,7 @@ gulp.task('vendor', function() {
 
 gulp.task('watch', function() {
 
-    let server = gls.new('./app/server.js');
+    let server = gls.new(`./app/${argv.static ? "staticApp.js" : "server.js"}`);
     server.start().then(function(result) {
         console.log(`Server exited with result ${result}`)
     })

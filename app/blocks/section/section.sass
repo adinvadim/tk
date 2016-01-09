@@ -9,6 +9,10 @@ $ctx: ".section"
   /*
    * Elements
    */
+  &__row
+    justify-content: center
+    display: flex
+    width: 100%
 
   &__wrapper
     position: absolute
@@ -45,12 +49,19 @@ $ctx: ".section"
   &_fullscreen
     height: 100vh
 
-  &_whitesmoke
+  &_color_whitesmoke
     background-color: $whitesmoke-color
 
-  &_darkslategray
+  &_color_darkslategray
     color: white
     background-color: $darkslategray-color
+
+    #{$ctx}__title
+      color: white
+
+  &_color_primary
+    color: white
+    background-color: $main-color
 
     #{$ctx}__title
       color: white
@@ -61,12 +72,6 @@ $ctx: ".section"
     .section__wrapper
       background-color: rgba(black, 0.5)
 
-  &_primary
-    color: white
-    background-color: $main-color
-
-    #{$ctx}__title
-      color: white
 
   &_video
     position: relative
@@ -106,6 +111,14 @@ $ctx: ".section"
     background-position: no-repeat
     background-attachment: fixed
     background-image: url(/images/section/coffee-cup-mug-dest.jpg)
+
+    #{$ctx}__title
+      color: white
+
+  &_img_blur-girl
+    background-position: no-repeat
+    background-attachment: fixed
+    background-image: url(/images/section/working-desk-desks.jpg)
 
     #{$ctx}__title
       color: white

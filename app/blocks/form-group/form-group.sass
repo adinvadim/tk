@@ -1,0 +1,23 @@
+.form-group
+  width: span(4 of 4)
+  @include gutters(4)
+  &__input, &__textarea
+    display: block
+    background-color: transparent
+    border: 2px solid white
+    padding: 10px 20px 10px 20px
+    width: 100%
+    box-sizing: border-box
+    border-radius: 5px
+    margin-bottom: 20px
+
+
+  &__textarea
+    height: 182px
+
+    &:active
+      border-color: $main-color
+
+
+  &_col_1-of-2
+    width: span(2 of 4)
