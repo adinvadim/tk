@@ -3,8 +3,8 @@ block extraCss
   link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
 block content
 
-  section(block="section", mods="center darken slim" mix="block: js-header, block: page elem: section")
-    div(elem="wrapper")
+  section(block="section", mods="center overlay:darken slim" mix="block: js-header, block: page elem: section")
+    div(elem="overlay")
     div(elem="content-wrap", mix="block: js-header elem: content-wrap")
       h1(block="page", elem="title", mix="block: title") Как  сделать так, чтобы Ваши ресурсы начали на Вас работать?
       p(block="page", elem="subtitle") Коучинг, который действительно безупречно эффективен
@@ -43,8 +43,8 @@ block content
           h4(block="quote", mix="block: title mods=[level:4]") Раз другим помогло, поможет и мне
           p Мы привыкли прислушиваться к рекомендациям друзей и знакомых, и это оправдано, если Вы ищете хорошего мастера по ремонту или зубного врача. Но когда речь идёт о собственном счастье, начинают работать иные законы. Потому как невозможно повторить чей-то путь, даже если у Вас одинаковые цели.
 
-  section(block="section", mods="slim darken img:coffee center")
-    div(elem="wrapper")
+  section(block="section", mods="slim overlay:darken img:coffee center")
+    div(elem="overlay")
     div(elem="content-wrap")
       h3(elem="title", mix="block:title mods:[level:3 center]") Как выбрать свой путь
       ul(block="list", mods="check")
@@ -61,7 +61,7 @@ block content
   section(block="section", mods="ultra-slim")
     div(elem="content-wrap")
       h3(block="title", mods="level:3 center") В чём отличия методики «Spiritual Option»?
-      div(block="features", mods="border center grid")
+      div(block="features", mods="border center grid hover:grow")
         div(elem="item", mods="primary col:1-of-2 center")
           h3(elem="title") SPIRITUAL OPTION
           ul(elem="list")
@@ -91,27 +91,27 @@ block content
       .swiper-container
         .swiper-wrapper(block="features", mods="swiper")
           .swiper-slide(elem="item", mods="center")
-            header(elem="header")
+            header(elem="header", mods="color:primary")
               i(elem="icon", class="fa fa-pagelines ")
               h3(elem="title") Естественность и гармоничность
             p(elem="text") никакого принудительного «встраивания» установок и черт. Хороши только те способы, в которых Вы чувствуете себя свободно и естественно
           .swiper-slide(elem="item", mods="center")
-            header(elem="header")
+            header(elem="header", mods="color:primary")
               i(elem="icon", class="fa fa-cubes ")
               h3(elem="title") Исключительная чёткость структуры работы на всех этапах
             p(elem="text") В «Spiritual Option» всё продумано до мелочей: соблюдается чёткая последовательность действий, приводящая к предсказуемому результату, проверенному на тысячах людей
           .swiper-slide(elem="item", mods="center")
-            header(elem="header")
+            header(elem="header", mods="color:primary")
               i(elem="icon", class="fa fa-history ")
               h3(elem="title") Глубина проработки прошлого опыта, мешающего достижению цели
             p(elem="text") оптимизация эмоционального состояния является непременным условием эффективности последующей работы
           .swiper-slide(elem="item", mods="center")
-            header(elem="header")
+            header(elem="header", mods="color:primary")
               i(elem="icon", class="fa fa-child ")
               h3(elem="title") Видимость изменений в реальной жизни
             p(elem="text") чёткое планирование и соблюдение срока достижения результата убедит Вас в 100% действенности метода
           .swiper-slide(elem="item", mods="center")
-            header(elem="header")
+            header(elem="header", mods="color:primary")
               i(elem="icon", class="fa fa-graduation-cap ")
               h3(elem="title") Устойчивость полученного положительного эффекта
             p(elem="text") овладение методикой «Spiritual Option» позволит не только пользоваться ей по завершении работы, но и покорять новые вершины уже без коуча.
@@ -121,22 +121,22 @@ block content
     div(elem="content-wrap")
       h3(elem="title", mix="block:title mods:[level:3 center]") Какие задачи можно решать с помощью «Spiritual Option»?
       div(block="features", mods="center grid")
-        div(elem="item", mods="col:1-of-4 center")
+        div(elem="item", mods="col:1-of-3 center")
           i(elem="icon", class="fa fa-users")
           p(elem="text") Гармонизация любых человеческих взаимоотношений (с партнёром, с детьми, с руководителем и коллегами)
-        div(elem="item", mods="col:1-of-4 center")
+        div(elem="item", mods="col:1-of-3 center")
           i(elem="icon", class="fa fa-money ")
           p(elem="text") Достижение конкретных финансовых целей (как для успешных бизнесменов, ставящих новые амбициозные задачи, так и для людей, которые недостаточно удовлетворены уровнем своего дохода)
-        div(elem="item", mods="col:1-of-4 center")
+        div(elem="item", mods="col:1-of-3 center")
           i(elem="icon", class="fa fa-cogs ")
           p(elem="text") Принятие сложных решений
-        div(elem="item", mods="col:1-of-4 center")
+        div(elem="item", mods="col:1-of-3 center")
           i(elem="icon", class="fa fa-medkit ")
           p(elem="text") Работа с травмами, зависимостями, фобиями
-        div(elem="item", mods="col:1-of-4 center")
+        div(elem="item", mods="col:1-of-3 center")
           i(elem="icon", class="fa fa-paint-brush ")
           p(elem="text") Развитие новых личностных качеств
-        div(elem="item", mods="col:1-of-4 center")
+        div(elem="item", mods="col:1-of-3 center")
           i(elem="icon", class="fa fa-magic ")
           p(elem="text") Борьба с прокрастинацией, Работа с телом, Помощь в преодолении стрессовых ситуаций
 
@@ -158,24 +158,59 @@ block content
           h3(elem="title") Техника восстановления после провалов.
           div(elem="text") Было бы наивным полагать, будто у каждого сразу получается добиваться желаемого. Разумеется, любой из нас сталкивается с препятствиями, вынуждающими проявлять гибкость в отношении намеченных планов. Коуч поддерживает клиента в те моменты, когда его стратегия даёт сбой, и помогает неустанно совершенствовать её и всё больше приближать к реальности. До тех пор, пока она не приведёт к долгожданному результату!
 
-  section(block="section", mods="img:blur-girl fix slim")
+  section(block="section", mods="color: whitesmoke")
     div(elem="content-wrap")
-      div(elem="row")
-        div(block="form-group", mods="col:1-of-2")
-          input(elem="input")
-        div(block="form-group", mods="col:1-of-2")
-          input(elem="input")
-      div(elem="row")
-        div(block="form-group")
-          textarea(elem="textarea")
+      h3(elem="title", mix="block:title mods:[level:3 center]") Цены
+      div(block="features", mods="center grid prices")
+        div(elem="item", mods="col:1-of-4 ")
+          header(elem="header")
+            h3(elem="title", mods="center") Встраивание позитивных качеств
+            div(elem="price", mods="center") 9 000р
+            div(elem="info", mods="center") 3 сессии
+          p(elem="text") Ориентирована на людей, которые стремятся сформировать в себе определённые личностные черты, либо минимизировать проявления «нежелательных» качеств.
+        div(elem="item", mods="col:1-of-4 ")
+          header(elem="header")
+            h3(elem="title", mods="center") Подготовка к значимому событию
+            div(elem="price", mods="center") 9 000р
+            div(elem="info", mods="center") 4 сессии
+          p(elem="text") Подходит для тех, кто желает максимально оптимизировать своё состояние для успешной сдачи важного экзамена, защиты диссертации или перед другим волнительным событием.
+        div(elem="item", mods="col:1-of-4 primary")
+          header(elem="header")
+            h3(elem="title", mods="center") Гармонизация <br> жизни
+            div(elem="price", mods="center") 30 000р
+            div(elem="info", mods="center") 10 сессий
+          p(elem="text") Минимальная базовая программа по работе с любыми целями по улучшению качества жизни (взаимоотношения в семье и с партнёрами, увеличение дохода, достижение новых показателей в бизнесе, профессиональная и творческая самореализация, эффективное и здоровое похудание и др.).
+        div(elem="item", mods="col:1-of-4 ")
+          header(elem="header")
+            h3(elem="title", mods="center") Избавление от зависимости или фобии
+            div(elem="price", mods="center") 30 000р
+            div(elem="info", mods="center") 10 сессий
+          p(elem="text") Помогает тем, кто хочет обрести внутреннюю свободу и ощутить полноту жизни.
 
 
-
+  section(block="section", mods="img:join-us center fix overlay:primary")
+    div(elem="overlay")
+    div(elem="content-wrap")
+      div(block="contact-form")
+        div(elem="item")
+          label(elem="label") Выберети курс
+          div(elem="select-arrow")
+            select(elem="select", mix="block: contact-form elem: form")
+              option(value="Встраивание позитивных качеств") Встраивание позитивных качеств
+              option(value="Подготовка к значимому событию") Подготовка к значимому событию
+              option(value="Гармонизация жизни") Гармонизация жизни
+              option(value="Избавление от зависимости или фобии") Избавление от зависимости или фобии
+        div(elem="item")
+          label(elem="label") Ваша почта
+          input(elem="form" type="email" name="email" placeholder="email@example.com")
+        div(elem="item" mods="center")
+          button(elem="button", mix="block: button") Отправить
 
 
 
 block js
   script(src="js/index.js")
+
   script.
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

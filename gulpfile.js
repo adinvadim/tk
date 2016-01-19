@@ -77,7 +77,9 @@ gulp.task('styles:build', function() {
 })
 
 
-
+gulp.task('test', function() {
+    
+})
 gulp.task('vendor', function() {
     //gulp.src(paths.vendor)
         //.pipe(gulp.dest('./public/vendor'));

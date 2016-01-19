@@ -14,7 +14,7 @@ $ctx: ".section"
     display: flex
     width: 100%
 
-  &__wrapper
+  &__overlay
     position: absolute
     top: 0
     bottom: 0
@@ -66,10 +66,14 @@ $ctx: ".section"
     #{$ctx}__title
       color: white
 
-  &_darken
+  &_overlay_primary
     color: white
+    .section__overlay
+      background-color: rgba($main-color, 0.8)
 
-    .section__wrapper
+  &_overlay_darken
+    color: white
+    .section__overlay
       background-color: rgba(black, 0.5)
 
 
@@ -119,6 +123,10 @@ $ctx: ".section"
     background-position: no-repeat
     background-attachment: fixed
     background-image: url(/images/section/working-desk-desks.jpg)
+
+  &_img_join-us
+    background-image: url(/images/section/join-us.jpg)
+    background-size: cover
 
     #{$ctx}__title
       color: white

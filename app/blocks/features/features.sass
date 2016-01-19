@@ -9,12 +9,14 @@ $green: #43A047
    */
 
   &__header
-    background-color: $main-color
-    color: white
     height: 100px
     padding: 20px
     display: flex
     flex-direction: column
+
+    &_color_primary
+      background-color: $main-color
+      color: white
 
   &__text
     padding-left: 10px
@@ -25,26 +27,49 @@ $green: #43A047
     width: 100%
     // Important чтобы перекрыть размеры font-awesome
     font-size: 100px !important
-    margin-left: 20px
-    margin-right: 20px
     //color: $main-color
 
   &__title
     font-size: 1em
 
+    &_center
+      text-align: center
+
+  &__price
+    font-size: 2em
+    font-weight: bold
+    color: $main-color
+
+    &_center
+      text-align: center
+
+  &__info
+    font-size: 0.7em
+
+    &_center
+      text-align: center
+
   &__item
+    box-sizing: border-box
     margin-bottom: 30px
     width: span(12 of 12)
     @include gutters(4)
 
-    &_col_1-of-4
-
+    &_col_1-of-3
       @media (min-width: 600px)
         width: span(1 of 2)
 
 
       @media (min-width: 1200px)
-        width: span(2 of 8)
+        width: span(1 of 3)
+
+    &_col_1-of-4
+      @media (min-width: 600px)
+        width: span(1 of 2)
+
+
+      @media (min-width: 1200px)
+        width: span(1 of 4)
 
     &_col_1-of-2
       @media (min-width: 600px)
@@ -73,14 +98,42 @@ $green: #43A047
     #{$ctx}__item
       padding: 0 10px
       border: 1px solid #eee
+      background-color: white
       border-radius: 5px
-      @media (min-width: 600px)
-        @include grow
     #{$ctx}__item
       border: 1px solid #eee
       border-radius: 5px
       &_primary
         border: 1px solid $green
+
+  &_prices
+    #{$ctx}__item
+      padding: 0 10px
+      background-color: white
+      border-radius: 5px
+      font-size: 16px
+      line-height: 1.5em
+
+    #{$ctx}__title
+      color: black
+    #{$ctx}__text
+
+    #{$ctx}__item
+      border: 1px solid #eee
+      border-radius: 5px
+      &_primary
+        background-color: rgba($main-color, 0.8)
+
+        #{$ctx}__text
+          color: white
+
+        #{$ctx}__price
+          color: white
+
+  &_hover_grow
+    #{$ctx}__item
+      @media (min-width: 600px)
+        @include grow
 
   &_list
     #{$ctx}__icon
@@ -143,7 +196,7 @@ $green: #43A047
 
     #{$ctx}__item
       @include gutters(4 inside)
-      width: span(4 of 4)
+      width: 100%
       padding-top: 40px
       padding-bottom: 40px
       margin-bottom: 0px

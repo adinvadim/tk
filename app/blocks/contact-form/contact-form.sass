@@ -1,0 +1,91 @@
+.contact-form
+  min-height: 70px
+  width: 100%
+  display: flex
+  color: $text-color
+
+  @media (max-width: 800px)
+    flex-direction: column
+
+  &__item
+    border-right: 2px solid #ccc
+    background-color: white
+    width: 100%
+    height: 70px
+
+    @media (max-width: 800px)
+      margin-top: 20px
+      border-radius: 4px
+      border: none
+
+      &:first-of-type
+        border-radius: 4px
+
+      &:last-of-type
+        border-radius: 4px
+
+
+    &:first-of-type
+        border-top-left-radius: 4px
+        border-bottom-left-radius: 4px
+
+    &:last-of-type
+      border-right: none
+      border-top-right-radius: 4px
+      border-bottom-right-radius: 4px
+
+    &_center
+      display: flex
+
+  &__select-arrow
+    position: relative
+
+    &:after
+      content: ""
+      position: absolute
+      top: 10px
+      right: 7px
+      border-width: 7px 6px
+      border-style: solid
+      border-color: $main-color transparent transparent
+
+
+
+  &__select
+    outline: none
+    background-color: transparent
+    border: none
+    cursor: pointer
+    color: $main-color
+    -webkit-appearance: none
+
+  &__form
+    background-color: transparent
+    padding: 0 20px
+    border: none
+    width: 100%
+    font-size: 18px
+    line-height: normal
+    outline: none
+
+  &__label
+    color: rgb(39,39,39)
+    font-weight: bold
+    text-transform: uppercase
+    font-size: 13px
+    margin-bottom: 0
+    text-align: left
+    padding: 10px 20px 0 20px
+
+  &__button
+    background-color: transparent
+    margin: auto
+    color: $main-color
+    font-weight: bold
+    box-sizing: border-box
+    width: 100%
+    height: 100%
+
+    &:hover
+      color: rgb(39,39,39)
+
