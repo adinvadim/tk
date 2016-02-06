@@ -24,7 +24,7 @@ const argv = require('yargs')
 
 const paths = {
     styles: ['app/blocks/**/*.{sass,scss}', 'src/css/**/*.css'],
-    images: ['app/blocks/**/images/*', 'src/images/*'],
+    images: ['app/blocks/**/images/*', 'src/images/*', 'app/bundles/**/images/*'],
     scripts: ['app/blocks/**/*.js', 'app/bundles/**/*.js', 'src/js/**/*.js'],
     vendor: {
         css: 'src/vendor/**/*.css',
@@ -76,10 +76,6 @@ gulp.task('styles:build', function() {
 
 })
 
-
-gulp.task('test', function() {
-    
-})
 gulp.task('vendor', function() {
     //gulp.src(paths.vendor)
         //.pipe(gulp.dest('./public/vendor'));
