@@ -9,7 +9,7 @@ $green: #43A047
    */
 
   &__header
-    height: 100px
+    height: 130px
     padding: 20px
     display: flex
     flex-direction: column
@@ -178,6 +178,15 @@ $green: #43A047
   &_grid
     display: flex
     flex-wrap: wrap
+
+  &_slim
+    display: flex
+    flex-direction: column
+    align-items: center
+    #{$ctx}__item
+      max-width: 1100px
+      padding: 0 auto
+
 
   &_images
     position: relative
