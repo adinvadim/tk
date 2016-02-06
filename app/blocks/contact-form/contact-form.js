@@ -11,3 +11,25 @@ exports.ButtonToContactForm = function (selector) {
         return false;
     })
 }
+
+
+exports.ContactForm = function() {
+    this.element = $('.contact-form')
+    this.element.on('submit', function() {
+        var form = $(this)
+        $.ajax({
+            url: "send",
+            data: form.serialize(),
+            type: "POST",
+            statusCode: {
+                200: function(jqXHR) {
+                    console.log(JSON.parse(jqXHR.responseText))
+                },
+                403: function(jqXHR) {
+                    console.log(JSON.parse(jqXHR.responseText))
+                },
+            }
+        })
+        return false
+    })
+}

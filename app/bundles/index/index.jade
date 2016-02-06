@@ -6,14 +6,16 @@ block content
   section(block="section", mods="center overlay:darken slim" mix="block: js-header, block: page elem: section")
     div(elem="overlay")
     div(elem="content-wrap", mix="block: js-header elem: content-wrap")
-      h1(block="page", elem="title", mix="block: title") Как  сделать так, чтобы Ваши ресурсы начали на Вас работать?
+      h1(block="page", elem="title", mix="block: title")
+        Как  сделать так, чтобы Ваши ресурсы начали на Вас работать?
       p(block="page", elem="subtitle") Коучинг, который действительно безупречно эффективен
       button(block="button", mods="primary", mix="block: page elem: button") Связаться
 
   section(block="section", mods="center fix slim")
     div(elem="content-wrap")
       h3(block="title", mods="level:3") Довольны ли своей жизнью?
-      p Устраивает ли Вас то, что Вы можете себе позволить? Полностью реализовали себя в профессии и не знаете, куда девать деньги? Счастливы в любви и семейной жизни?
+      p
+        Устраивает ли Вас то, что Вы можете себе позволить? Полностью реализовали себя в профессии и не знаете, куда девать деньги? Счастливы в любви и семейной жизни?
         Тогда можете бросить читать это прямо сейчас.
         Но если у Вас не выходит достичь желаемого, а время беспощадно колотит молоточком, напоминая о несбывшемся, то  Вы оказались в нужное время в нужном месте. Потому что скоро Вы увидите, наконец, на что на самом деле способны
       h3(block="title", mods="level:3") Что мы делаем, когда хотим добиться больших целей?
@@ -191,11 +193,11 @@ block content
   section(block="section", mods="img:join-us center fix overlay:primary", mix="block: js-contact-form elem: section")
     div(elem="overlay")
     div(elem="content-wrap")
-      div(block="contact-form")
+      form(block="contact-form")
         div(elem="item")
           label(elem="label") Выберети курс
           div(elem="select-arrow")
-            select(elem="select", mix="block: contact-form elem: form")
+            select(elem="select", mix="block: contact-form elem: form", name="course")
               option(value="Встраивание позитивных качеств") Встраивание позитивных качеств
               option(value="Подготовка к значимому событию") Подготовка к значимому событию
               option(value="Гармонизация жизни") Гармонизация жизни

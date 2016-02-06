@@ -12,6 +12,17 @@
             }
         }
     },
+    "mailer": {
+        "from": "tkcoach@yandex.ru",
+        "host": "smtp.yandex.ru",
+        "secureConnection": true,
+        "port": 465,
+        "transportMethod": "SMTP",
+        "auth": {
+            "user": "tkcoach@yandex.ru",
+            "pass": "kostina7549557"
+        }
+    },
     "session": {
         "secret": "GirlsAndDrugs",
         "key": "sid",

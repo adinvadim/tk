@@ -11,11 +11,15 @@ const config = require('./config');
 const posthtml = require('posthtml');
 const mongoose = require('mongoose');
 const log = require('./lib/logger');
+const mailer = require('express-mailer');
+
 
 const env = process.env.NODE_ENV || 'developement'
 process.env.NODE_ENV = env
 
 let app = express();
+
+mailer.extend(app, config.get('mailer'))
 
 app.set('views', path.join(__dirname, 'bundles'));
 app.engine('jade', function (path, options, callback) {
