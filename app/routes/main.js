@@ -15,11 +15,14 @@ router.get('/', function(req, res) {
 
 router.post('/send', function(req, res) {
     let course = req.body.course
-    let email = req.body.email
+    let text = req.body.text
     res.mailer.send('email', {
         to: 'tkcoach@yandex.ru',
-        subject: course,
-        email: email
+        from: `${req.body.name} <${req.body.email}>`,
+        subject: 'Запрос с сайта по коучингу Spirital  Option',
+        text: text,
+        name: req.body.name,
+        email: req.body.email
 
     }, function(err) {
         if (err) log.error(err);
